@@ -1,6 +1,7 @@
 package com.pranay.microservices.currency_conversion_service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +39,8 @@ public class CurrencyConversionController {
                 currencyConversion.getEnvironment());
     }
 
-    @GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
+    //Specifically adding produces to get JSON response
+    @GetMapping(value = "/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CurrencyConversion calculateCurrencyConversionFeign(
             @PathVariable String from,
             @PathVariable String to,
