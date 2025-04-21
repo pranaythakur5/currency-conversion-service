@@ -17,7 +17,7 @@ public class CurrencyConversionController {
     @Autowired
     private CurrencyExchangeProxy proxy;
 
-    @GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{quantity}")
+    @GetMapping(value = "/currency-conversion/from/{from}/to/{to}/quantity/{quantity}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CurrencyConversion calculateCurrencyConversion(
             @PathVariable String from,
             @PathVariable String to,
